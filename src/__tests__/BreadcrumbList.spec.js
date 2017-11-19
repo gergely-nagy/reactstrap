@@ -25,12 +25,14 @@ describe('BreadcrumbItem', () => {
     const wrapper = shallow(<BreadcrumbItem>Default BreadcrumbItem</BreadcrumbItem>);
 
     expect(wrapper.hasClass('active')).toBe(false);
+    expect(wrapper.prop('aria-current')).toBe(undefined);
   });
 
   it('should render with the "active" class when the avtive prop is truthy', () => {
     const wrapper = shallow(<BreadcrumbItem active>Default BreadcrumbItem</BreadcrumbItem>);
 
     expect(wrapper.hasClass('active')).toBe(true);
+    expect(wrapper.prop('aria-current')).toBe('page');
   });
 
   it('should render custom tag', () => {

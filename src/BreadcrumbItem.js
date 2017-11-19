@@ -29,7 +29,11 @@ const BreadcrumbItem = (props) => {
   ), cssModule);
 
   return (
-    <Tag {...attributes} className={classes} />
+    <Tag
+      {...attributes}
+      className={classes}
+      aria-current={active ? 'page' : undefined}
+    />
   );
 };
 
