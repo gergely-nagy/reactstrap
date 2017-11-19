@@ -44,6 +44,7 @@ class Button extends React.Component {
   render() {
     let {
       active,
+      disabled,
       block,
       className,
       cssModule,
@@ -61,7 +62,7 @@ class Button extends React.Component {
       `btn${outline ? '-outline' : ''}-${color}`,
       size ? `btn-${size}` : false,
       block ? 'btn-block' : false,
-      { active, disabled: this.props.disabled }
+      { active, disabled }
     ), cssModule);
 
     if (attributes.href && Tag === 'button') {
@@ -75,6 +76,8 @@ class Button extends React.Component {
         className={classes}
         ref={innerRef}
         onClick={this.onClick}
+        aria-disabled={disabled}
+        aria-pressed={active}
       />
     );
   }

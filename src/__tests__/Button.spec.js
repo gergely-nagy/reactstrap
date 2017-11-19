@@ -97,6 +97,32 @@ describe('Button', () => {
     expect(block.hasClass('btn-block')).toBe(true);
   });
 
+  it('should not render with the "active" class by default', () => {
+    const wrapper = shallow(<Button>Default Button</Button>);
+
+    expect(wrapper.hasClass('active')).toBe(false);
+  });
+
+  it('should render with the "active" class when the avtive prop is truthy', () => {
+    const wrapper = shallow(<Button active>Default Button</Button>);
+
+    expect(wrapper.hasClass('active')).toBe(true);
+    expect(wrapper.prop('aria-pressed')).toBe(true);
+  });
+
+  it('should not render with the "disabled" class by default', () => {
+    const wrapper = shallow(<Button>Default Button</Button>);
+
+    expect(wrapper.hasClass('disabled')).toBe(false);
+  });
+
+  it('should render with the "disabled" class when the disabled prop is truthy', () => {
+    const wrapper = shallow(<Button disabled>Default Button</Button>);
+
+    expect(wrapper.hasClass('disabled')).toBe(true);
+    expect(wrapper.prop('aria-disabled')).toBe(true);
+  });
+
   describe('onClick', () => {
     it('calls props.onClick if it exists', () => {
       const onClick = jest.fn();
