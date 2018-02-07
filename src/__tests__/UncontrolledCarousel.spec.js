@@ -34,6 +34,11 @@ describe('UncontrolledCarousel', () => {
     expect(carousel.prop('ride')).toBe('carousel');
   });
 
+  it('should have ride set to undefined when autoPlay is false', () => {
+    const carousel = shallow(<UncontrolledCarousel items={items} autoPlay={false} />);
+    expect(carousel.prop('ride')).toBe(undefined);
+  });
+
   it('should increase the activeIndex when next is called', () => {
     const carousel = shallow(<UncontrolledCarousel items={items} />);
     const instance = carousel.instance();
